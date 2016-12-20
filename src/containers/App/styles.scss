@@ -1,0 +1,24 @@
+@import "normalize.css";
+
+.app {
+    align-items: center;
+    display: flex;
+    font-family: 'Caveat Brush', cursive;
+    font-size: 40px;
+    height: 100vh;
+    justify-content: center;
+    width: 100vw;
+}
+
+.example {
+    height: 100vh;
+    opacity: 0.6;
+    position: absolute;
+    width: 100vw;
+    z-index: 0;
+}
+
+.title {
+    z-index: 1;
+}
+

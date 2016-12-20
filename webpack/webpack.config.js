@@ -22,8 +22,10 @@ module.exports = {
     extensions: ['', '.jsx', '.js', '.json', '.scss'],
     modules: ['node_modules'],
     alias: {
+      actions: `${__dirname}/../src/actions`,
       components: `${__dirname}/../src/components`,
       containers: `${__dirname}/../src/containers`,
+      reducers: `${__dirname}/../src/reducers`,
     }
   },
 

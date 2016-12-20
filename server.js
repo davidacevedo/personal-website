@@ -10,10 +10,10 @@ const port = process.env.PORT || 3000;
 const compiler = webpack(webpackConfig);
 
 app.use(morgan('short'));
-app.use(express.static('public'));
 
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: '/' }));
+app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }));
 app.use(webpackHotMiddleware(compiler, { log: console.log, path: '/__webpack_hmr', heartbeat: 10 * 1000 }));
+app.use(express.static(`${__dirname}/public`));
 
 app.listen(3000, () => {
   console.log(`Listening on port ${port}`);

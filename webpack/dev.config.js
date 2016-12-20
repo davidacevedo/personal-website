@@ -1,6 +1,10 @@
 const webpack = require('webpack');
 const path = require('path');
+const postcssImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
+
+const TARGET = process.env.npm_lifecycle_event;
+process.env.BABEL_ENV = TARGET;
 
 module.exports = {
   devtool: '#eval-source-map',
@@ -17,17 +21,14 @@ module.exports = {
     publicPath: '/',
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-  ],
-
   resolve: {
     extensions: ['.jsx', '.js', '.json', '.scss'],
     modules: ['node_modules'],
     alias: {
+      actions: `${__dirname}/../src/actions`,
       components: `${__dirname}/../src/components`,
       containers: `${__dirname}/../src/containers`,
+      reducers: `${__dirname}/../src/reducers`,
     }
   },
 
@@ -101,5 +102,18 @@ module.exports = {
     postcssImport({
       addDependencyTo: pack,
     }),
+  ],
+
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: process.env.NODE_ENV === 'development' ? '"development"' : '"production"',
+      },
+      __DEVELOPMENT__: process.env.NODE_ENV === 'development',
+      __PRODUCTION__: process.env.NODE_ENV === 'production',
+      __CLIENT__: true,
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
   ],
 };
