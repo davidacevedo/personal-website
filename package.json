@@ -1,0 +1,47 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "A personal website of mine",
+  "scripts": {
+    "start": "NODE_ENV=development node bin/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidacevedo/personal-website.git"
+  },
+  "author": "David Acevedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidacevedo/personal-website/issues"
+  },
+  "homepage": "https://github.com/davidacevedo/personal-website#readme",
+  "dependencies": {
+    "autoprefixer": "^6.5.4",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.16.0",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "history": "^4.5.0",
+    "postcss-import": "^9.0.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-redux": "^5.0.1",
+    "react-router": "^3.0.0",
+    "redux": "^3.6.0",
+    "webpack": "2.1.0-beta.22"
+  },
+  "devDependencies": {
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-dev-server": "2.1.0-beta.10",
+    "webpack-hot-middleware": "^2.13.2"
+  }
+}
