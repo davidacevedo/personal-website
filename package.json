@@ -4,7 +4,7 @@
   "description": "A personal website of mine",
   "scripts": {
     "build": "rm -r dist || webpack --config webpack/webpack.config.js && cp public/deployIndex.html dist/index.html",
-    "deploy": "npm run build && cp public/deployIndex.html dist/index.html && git subtree push --prefix dist origin gh-pages",
+    "deploy": "npm run build && git subtree push --prefix dist origin gh-pages",
     "start": "NODE_ENV=development node bin/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
