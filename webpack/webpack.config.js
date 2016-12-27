@@ -77,7 +77,7 @@ module.exports = {
       exclude: /node_modules/,
     }, {
       test: /\.(png|jpg|jpeg|gif)$/,
-      loader: 'file-loader',
+      loader: 'file-loader?name=./images/[name].[ext]',
     }, {
       test: /\.scss$/,
       loader: ExtractTextPlugin.extract({ notExtractLoader: 'style-loader', loader: 'css?modules&minimize!postcss!resolve-url!sass?sourceMap' }),
@@ -88,6 +88,11 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new ExtractTextPlugin('bundle.css'),
     new webpack.ContextReplacementPlugin(/moment[\\\/]locale$/, /^\.\/(en)$/),
     new webpack.optimize.DedupePlugin(),

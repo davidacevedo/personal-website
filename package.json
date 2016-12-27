@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A personal website of mine",
   "scripts": {
-    "deploy": "webpack --config webpack/webpack.config.js && git add . && git commit -m \"Deploy to gh-pages\" && git subtree push --prefix dist origin gh-pages",
+    "build": "rm -r dist && webpack --config webpack/webpack.config.js",
+    "deploy": "npm run build && git subtree push --prefix dist origin gh-pages",
     "start": "NODE_ENV=development node bin/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
